@@ -45,7 +45,7 @@ Hover Time - The transition time from the folder's background color to the Hover
 Component Highlight - The color that the components background shifts to when the mouse is over that folder ( The transition time is also the Hover Time ).<br />
 
 # Fonts:
-All fonts are loaded into automatically.<br />
+All (google) fonts are loaded into automatically.<br />
 Family - Font family.<br />
 Size - Font size.<br />
 
