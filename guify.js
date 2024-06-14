@@ -255,17 +255,17 @@ class GuifyCreator {
 
                         if (this.draggable) {
 
-                            // if (x < this.gui.offsetWidth) {
-                            //     this.gui.style.left = '0';
-                            //     if (this.alignment == 'right') {
-                            //         this.objectType.style.left = `${this.width - 15}px`;
-                            //     };
-                            // };
+                            if (x < this.gui.offsetWidth) {
+                                this.gui.style.left = '0';
+                                if (this.alignment == 'right') {
+                                    this.objectType.style.left = `${this.width - 15}px`;
+                                };
+                            };
 
-                            // if (y < this.gui.offsetHeight) {
-                            //     this.gui.style.top = window.innerHeight - this.gui.offsetHeight + 'px';
-                            //     this.objectType.style.top = `${(window.innerHeight - this.gui.offsetHeight) + 2.5}px`;
-                            // };
+                            if (y < this.gui.offsetHeight) {
+                                this.gui.style.top = window.innerHeight - this.gui.offsetHeight + 'px';
+                                this.objectType.style.top = `${(window.innerHeight - this.gui.offsetHeight) + 2.5}px`;
+                            };
                         };
                     };
                 });
