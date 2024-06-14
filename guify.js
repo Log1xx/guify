@@ -17,7 +17,9 @@ alert_.style.zIndex = '999999999';
 alert_.style.transition = 'opacity 0.5s ease-in-out';
 alert_.style.fontSize = `${window.innerWidth * 0.01}px`
 alert_.style.transform = 'translate(-50%, -50%)';
+setTimeout(() => {
 document.body.appendChild(alert_);
+}, 1000);
 
 const documentAlert = (label, color, timeout = 2000) => {
     alert_.textContent = label;
