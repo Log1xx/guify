@@ -1,3 +1,5 @@
+window.onload = () => {
+
 const alert_ = document.createElement('div');
 alert_.style.color = 'white';
 alert_.style.textAlign = 'center';
@@ -1196,4 +1198,5 @@ class GuifyCreator {
             };
         };
     };
+};
 };
