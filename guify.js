@@ -17,7 +17,7 @@ alert_.style.transition = 'opacity 0.5s ease-in-out';
 alert_.style.fontSize = `${window.innerWidth * 0.01}px`
 alert_.style.transform = 'translate(-50%, -50%)';
 document.onload = () => {
-document.body.appendChild(alert_);
+    document.body.appendChild(alert_);
 };
 
 const documentAlert = (label, color, timeout = 2000) => {
@@ -41,7 +41,7 @@ function fadeOut(duration = 500) {
 };
 
 class GuifyCreator {
-    constructor (settings) {
+    constructor(settings) {
         var link = document.createElement('link');
 
         var googleFont = "";
@@ -253,16 +253,19 @@ class GuifyCreator {
 
                         this.gui.style.display = this.gui.style.display === 'none' ? 'block' : 'none';
 
-                        if (x < this.gui.offsetWidth) {
-                            this.gui.style.left = '0';
-                            if (this.alignment == 'right') {
-                                this.objectType.style.left = `${this.width - 15}px`;
-                            };
-                        };
+                        if (this.draggable) {
 
-                        if (y < this.gui.offsetHeight) {
-                            this.gui.style.top = window.innerHeight - this.gui.offsetHeight + 'px';
-                            this.objectType.style.top = `${(window.innerHeight - this.gui.offsetHeight) + 2.5}px`;
+                            if (x < this.gui.offsetWidth) {
+                                this.gui.style.left = '0';
+                                if (this.alignment == 'right') {
+                                    this.objectType.style.left = `${this.width - 15}px`;
+                                };
+                            };
+
+                            if (y < this.gui.offsetHeight) {
+                                this.gui.style.top = window.innerHeight - this.gui.offsetHeight + 'px';
+                                this.objectType.style.top = `${(window.innerHeight - this.gui.offsetHeight) + 2.5}px`;
+                            };
                         };
                     };
                 });
