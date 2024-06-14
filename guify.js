@@ -1200,3 +1200,5 @@ class GuifyCreator {
         };
     };
 };
+
+window.GuifyCreator = GuifyCreator;
