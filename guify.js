@@ -1,4 +1,3 @@
-window.onload = () => {
 
 const alert_ = document.createElement('div');
 alert_.style.color = 'white';
@@ -1200,5 +1199,4 @@ class GuifyCreator {
             };
         };
     };
-};
 };
