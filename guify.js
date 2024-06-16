@@ -1187,7 +1187,7 @@ class GuifyCreator {
 
                 const type = settings[i].type;
 
-                if (!type) throw new Error(`Please specify the correct settings: [ TYPE ] | Type given: [ ${type} ]`);
+                if (!type) throw new Error(`Please specify the correct settings and add the type: [ TYPE ] | Type given: [ ${type} ]`);
 
                 switch (type) {
                     case 'switch': {
