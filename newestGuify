@@ -1,3 +1,4 @@
+const { eventNames } = require("process");
 
 const alert_ = document.createElement('div');
 alert_.style.color = 'white';
@@ -1036,6 +1037,10 @@ class GuifyCreator {
             event.stopPropagation();
         });
 
+        input.addEventListener('click', (event) => {
+            event.stopPropagation();
+        });
+
         container.appendChild(label_);
         container.appendChild(input);
 
@@ -1043,7 +1048,7 @@ class GuifyCreator {
         this.addToFolder(folder, container);
     };
 
-    async appendPrompt(label, options, funct) {
+    async appendLogin(label, options, funct) {
 
         const childNodes = Array.from(this.gui.childNodes);
 
@@ -1169,12 +1174,12 @@ class GuifyCreator {
     create(settings) {
         if (!Array.isArray(settings)) {
             if (settings.type == 'folder') this.createFolder(settings.label, settings.open);
-            if (settings.type == 'prompt') {
+            if (settings.type == 'login') {
                 const label = settings.label;
                 const options = settings;
                 var funct = settings.onEnter;
                 if (!funct) funct = null;
-                this.appendPrompt(label, options, funct);
+                this.appendLogin(label, options, funct);
             };
         } else {
             var folderLabel = settings[settings.length - 1][0].folder;
@@ -1187,7 +1192,7 @@ class GuifyCreator {
 
                 const type = settings[i].type;
 
-                if (!type) throw new Error(`Please specify the correct settings and add the type: [ TYPE ] | Type given: [ ${type} ]`);
+                if (!type) throw new Error(`Please specify the correct settings: [ TYPE ] | Type given: [ ${type} ]`);
 
                 switch (type) {
                     case 'switch': {
@@ -1245,7 +1250,7 @@ class GuifyCreator {
 
                     case 'input': {
                         const label = settings[i].label;
-                        var funct = settings[i].onInput;
+                        var funct = settings[i].onSlide;
                         const object = settings[i].object;
                         const property = settings[i].property;
                         if (!funct) funct = null;
