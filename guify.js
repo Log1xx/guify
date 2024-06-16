@@ -997,7 +997,7 @@ class GuifyCreator {
         this.addToFolder(folder, container);
     };
 
-    async appendInput(label, options, folderLabel, funct) {
+    async appendInput(label, [object, property], folderLabel, funct) {
 
         const container = document.createElement('div');
         container.style.position = 'relative';
@@ -1014,8 +1014,8 @@ class GuifyCreator {
         label_.style.wordBreak = 'break-word';
 
         const input = document.createElement('input');
-        input.placeholder = options.placeholder;
         input.style.width = '30%';
+        input.value = object[property];
         input.style.marginRight = '3%';
         input.style.marginLeft = '67%';
         input.style.height = `${this.fonts.size * 1.8}px`;
@@ -1245,10 +1245,11 @@ class GuifyCreator {
 
                     case 'input': {
                         const label = settings[i].label;
-                        const options = settings[i];
                         var funct = settings[i].onSlide;
+                        const object = settings[i].object;
+                        const property = settings[i].property;
                         if (!funct) funct = null;
-                        this.appendInput(label, options, folderLabel, funct);
+                        this.appendInput(label, [object, property], folderLabel, funct);
                         break;
                     }
 
