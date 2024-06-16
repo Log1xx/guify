@@ -885,7 +885,7 @@ class GuifyCreator {
         this.addToFolder(folder, container);
     }
     appendSlider(label, options, folderLabel, funct) {
-        if (!options.value) options.value = (options.max - options.min) / 2;
+        if (!options.value) options.value = (options.max - options.min - 1) / 2;
         const container = document.createElement('div');
         container.style.display = 'block';
         container.style.position = 'relative';
