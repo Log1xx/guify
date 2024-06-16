@@ -997,6 +997,52 @@ class GuifyCreator {
         this.addToFolder(folder, container);
     };
 
+    async appendInput(label, options, folderLabel, funct) {
+
+        const container = document.createElement('div');
+        container.style.position = 'relative';
+        container.style.display = 'block';
+        container.style.marginTop = '3px';
+        container.style.marginBottom = `5px`;
+
+        const label_ = document.createElement('div');
+        label_.textContent = label;
+        label_.style.width = '67%';
+        label_.style.marginLeft = '3%';
+        label_.style.fontSize = this.fonts.size + 'px';
+        label_.style.whiteSpace = 'normal';
+        label_.style.wordBreak = 'break-word';
+
+        const input = document.createElement('input');
+        input.placeholder = options.placeholder;
+        input.style.width = '30%';
+        input.style.marginRight = '3%';
+        input.style.marginLeft = '67%';
+        input.style.height = `${this.fonts.size * 1.8}px`;
+        input.style.textAlign = 'center';
+        input.style.fontFamily = this.fonts.family;
+        input.style.fontSize = this.fonts.size + 'px';
+        input.style.display = 'block';
+        input.style.top = `${this.fonts.size / 10}px`;
+        input.style.position = 'absolute';
+
+        input.addEventListener('keypress', (event) => {
+            if (event.key == 'Enter') {
+                if (funct) funct(input.value);
+            };
+        });
+
+        input.addEventListener('input', (event) => {
+            event.stopPropagation();
+        });
+
+        container.appendChild(label_);
+        container.appendChild(input);
+
+        const folder = this.folders.find(f => f.label === folderLabel);
+        this.addToFolder(folder, container);
+    };
+
     async appendPrompt(label, options, funct) {
 
         const childNodes = Array.from(this.gui.childNodes);
@@ -1196,6 +1242,15 @@ class GuifyCreator {
                         this.appendSlider(label, options, folderLabel, funct);
                         break;
                     };
+
+                    case 'input': {
+                        const label = settings[i].label;
+                        const options = settings[i];
+                        var funct = settings[i].onSlide;
+                        if (!funct) funct = null;
+                        this.appendInput(label, options, folderLabel, funct);
+                        break;
+                    }
 
                     default: throw new Error(`Please specify the correct settings: [ TYPE ] | Type given: [ ${type} ]`);
                 };
