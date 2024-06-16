@@ -102,9 +102,9 @@ Max - The maxium value that the slider can go to.<br />
 Value - The slider's value that it's set to ( Other wise it's automatically set in the middle ).<br />
 onSlider Function - Returns the value in 1 param in which the value is a number that states what the slider is currently set on.<br />
 
-# Prompts
+# Logins
 ```
-GUI.create({ type: "prompt", label: 'Please enter your password:', placeholder: 'Password', allowPAV: true, autoinput: true, store: true, allowOOD: true, remember: true, key: "new gui", onEnter(e) { if (e == "new gui") { initalizeScript(); GUI.unlock(); } } });
+GUI.create({ type: "login", label: 'Please enter your password:', placeholder: 'Password', allowPAV: true, autoinput: true, store: true, allowOOD: true, remember: true, key: "new gui", onEnter(e) { if (e == "new gui") { initalizeScript(); GUI.unlock(); } } });
 ```
 Label - The question being asked.<br />
 Placeholder - The placeholder inside the input / text box.<br />
@@ -116,6 +116,15 @@ Remember - If the user inputs the correct password, do we automatically log them
 Key - Set the key so we know if the user inputs the correct one ( Used for the Remember property ).<br />
 onEnter Function - The answer the user gives to your question.<br />
 GUI.unlock() - Once you open a prompt ( basically a login ), once they input the type of information you are looking for, you can use GUI.unlock() to unlock the gui and all the folders will return to the state in which they are loaded, if you don't use this function then the gui will seem to not change.<br />
+
+# Inputs
+```
+GUI.create({ label: 'TrashTalk', type: 'input', object: Settings.TrashTalk, property: 'message', onInput(e) { } });
+```
+Label - The components name.<br />
+Object - The object that the component is assigned to ( Examples listed below ).<br />
+Property - The property of that object ( Examples listed below ).<br />
+onInput Function - Returns the value of the input.<br />
 
 # Selects
 ```
