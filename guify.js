@@ -1245,7 +1245,7 @@ class GuifyCreator {
 
                     case 'input': {
                         const label = settings[i].label;
-                        var funct = settings[i].onSlide;
+                        var funct = settings[i].onInput;
                         const object = settings[i].object;
                         const property = settings[i].property;
                         if (!funct) funct = null;
