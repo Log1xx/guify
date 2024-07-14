@@ -949,21 +949,24 @@ class GuifyCreator {
 
         textInput.addEventListener('input', (event) => {
             event.stopPropagation();
-            if (!isNaN(event.value) && (Number(textInput.value) <= Number(options.max))) {
-                numberValue = textInput.value;
+        
+            let inputValue = Number(textInput.value);
+        
+            if (!isNaN(inputValue)) {
+                if (inputValue > Number(options.max)) {
+                    inputValue = Number(options.max);
+                }
+        
+                numberValue = inputValue;
                 slider.value = numberValue;
-                if (funct) funct(textInput.value);
-            } else if (!isNaN(event.value) && Number(textInput.value) > Number(options.max)) {
-                numberValue = options.max;
-                slider.value = numberValue;
-                textInput.value = options.max;
-                if (funct) funct(textInput.value);
-            } else if (!isNaN(event.value)) {
-                if (funct) funct(textInput.value);
+                textInput.value = numberValue;
+        
+                if (funct) funct(numberValue);
             } else {
                 textInput.value = numberValue;
-            };
+            }
         });
+        
 
         slider.addEventListener('input', function (event) {
             event.stopPropagation();
